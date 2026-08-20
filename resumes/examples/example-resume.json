@@ -1,6 +1,6 @@
 {
   "name": "Jordan Example",
-  "headline": "Product-minded Software Engineer",
+  "headline": "Product Engineering | Workflow Systems, Accessibility & Reliable Delivery",
   "location": "Remote",
   "contact": [
     {
@@ -38,7 +38,7 @@
     {
       "company": "Example Labs",
       "role": "Senior Software Engineer",
-      "location": "Remote",
+      "location": "Remote | Workflow platform and support operations",
       "start": "2023",
       "end": "Present",
       "bullets": [
@@ -50,7 +50,7 @@
     {
       "company": "Northstar Systems",
       "role": "Software Engineer",
-      "location": "Hybrid",
+      "location": "Hybrid | Reporting and internal tooling",
       "start": "2020",
       "end": "2023",
       "bullets": [
@@ -64,6 +64,7 @@
     {
       "name": "Civic Queue Simulator",
       "url": "https://example.com/projects/queue-simulator",
+      "date": "2024",
       "description": "Interactive, privacy-safe simulator for exploring staffing and arrival-rate tradeoffs in public-service queues.",
       "highlights": [
         "Published a tested calculation engine, accessible controls, and a methodology note using entirely synthetic data."
@@ -72,6 +73,7 @@
     {
       "name": "Release Notes Assistant",
       "url": "https://example.com/projects/release-notes",
+      "date": "2023",
       "description": "Small local tool that groups merged changes into a reviewable release-note draft.",
       "highlights": [
         "Designed the workflow to keep a human approval step and avoid sending repository data to external services."
@@ -82,10 +84,18 @@
     {
       "institution": "Example State University",
       "credential": "B.S. in Computer Science",
-      "location": "Example City",
+      "location": "Example City | Fictional institution",
       "start": "2016",
       "end": "2020"
     }
   ],
-  "note": "Synthetic resume example - every person, organization, URL, and result is fictional."
+  "certifications": [
+    "Cloud Systems - Example Learning (2022)",
+    "Web Accessibility - Sample Institute (2023)"
+  ],
+  "languages": [
+    "English (fluent)",
+    "Spanish (conversational)"
+  ],
+  "note": "Synthetic public example | Page 1"
 }

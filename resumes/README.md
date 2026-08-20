@@ -36,6 +36,14 @@ pwsh -File .\scripts\build-resume.ps1 `
 The PDF option uses Microsoft Edge's headless print mode. Omit `-PdfPath` if you only need HTML.
 Open the HTML in a browser to review it before sharing the PDF.
 
+## Default Design
+
+The default template uses a compact, evidence-first Letter layout: Arial body text, restrained
+forest and teal accents, a left-aligned identity header, ruled section headings, labeled capability
+lines, and right-aligned dates. It is optimized for a strong one-page technical resume. If your
+content spills onto a second page, remove lower-value material or deliberately create a two-page
+variant and review every page before sending it.
+
 ## What to Tailor
 
 1. Match the headline and summary to the role without overstating your background.
@@ -43,7 +51,9 @@ Open the HTML in a browser to review it before sharing the PDF.
 3. Choose two to four bullets per recent role. Lead with the action, then the measurable outcome
    and enough context to make the result credible.
 4. Include projects that demonstrate requirements the work history does not cover.
-5. Check dates, links, spelling, page breaks, and PDF text selection before sending.
+5. Use the optional `certifications` and `languages` arrays only when they strengthen the target
+   application.
+6. Check dates, links, spelling, page breaks, and PDF text selection before sending.
 
 `resumes/private/` is ignored by Git. This is the safest place in this public repository for a
 local working copy, but remember that any file can still be published accidentally if ignore rules

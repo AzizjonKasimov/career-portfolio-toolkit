@@ -69,6 +69,22 @@ function Render-Bullets {
     return "<ul>$($listItems -join '')</ul>"
 }
 
+function Render-AdditionalLine {
+    param(
+        [Parameter(Mandatory)][string]$Label,
+        [AllowNull()][object[]]$Items
+    )
+
+    $safeItems = @($Items | Where-Object { $null -ne $_ -and ([string]$_).Trim().Length -gt 0 })
+    if ($safeItems.Count -eq 0) {
+        return ""
+    }
+
+    $encodedItems = $safeItems | ForEach-Object { Encode-Html $_ }
+    return '<div class="additional-line"><span class="additional-label">{0}:</span>{1}</div>' -f
+        (Encode-Html $Label), ($encodedItems -join '; ')
+}
+
 $dataAbsolute = Get-ExistingPath -Path $DataPath -Description "Resume data file"
 $templateAbsolute = Get-ExistingPath -Path $TemplatePath -Description "Resume template"
 $htmlAbsolute = Get-OutputPath -Path $HtmlPath
@@ -126,9 +142,10 @@ $experienceEntries = foreach ($entry in @($data.experience)) {
     @"
 <article class="entry">
   <div class="entry-heading">
-    <div><span class="entry-title">$(Encode-Html $role)</span> <span class="entry-subtitle">- $(Encode-Html $company)</span></div>
-    <div class="entry-meta">$(Encode-Html $start)-$(Encode-Html $end) · $(Encode-Html $entryLocation)</div>
+    <div><span class="entry-title">$(Encode-Html $role)</span> <span class="entry-subtitle">| $(Encode-Html $company)</span></div>
+    <div class="entry-meta">$(Encode-Html $start) - $(Encode-Html $end)</div>
   </div>
+  <div class="entry-subline">$(Encode-Html $entryLocation)</div>
   $bullets
 </article>
 "@
@@ -138,6 +155,7 @@ $projectEntries = foreach ($entry in @($data.projects)) {
     $projectName = Require-Property -Object $entry -Name "name" -Context "Project entry"
     $description = Require-Property -Object $entry -Name "description" -Context "Project entry"
     $projectUrl = Require-Property -Object $entry -Name "url" -Context "Project entry"
+    $projectDate = Require-Property -Object $entry -Name "date" -Context "Project entry"
 
     $uri = $null
     if (-not [Uri]::TryCreate([string]$projectUrl, [UriKind]::Absolute, [ref]$uri) -or
@@ -150,7 +168,7 @@ $projectEntries = foreach ($entry in @($data.projects)) {
 <article class="entry">
   <div class="entry-heading">
     <div class="entry-title"><a href="$(Encode-Html $uri.AbsoluteUri)">$(Encode-Html $projectName)</a></div>
-    <div class="entry-meta">$(Encode-Html $uri.Host)</div>
+    <div class="entry-meta">$(Encode-Html $projectDate)</div>
   </div>
   <p class="project-description">$(Encode-Html $description)</p>
   $highlights
@@ -168,12 +186,16 @@ $educationEntries = foreach ($entry in @($data.education)) {
     @"
 <article class="entry">
   <div class="entry-heading">
-    <div><span class="entry-title">$(Encode-Html $credential)</span> <span class="entry-subtitle">- $(Encode-Html $institution)</span></div>
-    <div class="entry-meta">$(Encode-Html $start)-$(Encode-Html $end) · $(Encode-Html $educationLocation)</div>
+    <div><span class="entry-title">$(Encode-Html $credential)</span> <span class="entry-subtitle">| $(Encode-Html $institution)</span></div>
+    <div class="entry-meta">$(Encode-Html $start) - $(Encode-Html $end)</div>
   </div>
+  <div class="entry-subline">$(Encode-Html $educationLocation)</div>
 </article>
 "@
 }
+
+$certificationLine = Render-AdditionalLine -Label "Certifications" -Items @($data.certifications)
+$languageLine = Render-AdditionalLine -Label "Languages" -Items @($data.languages)
 
 if (@($skillRows).Count -eq 0 -or @($experienceEntries).Count -eq 0 -or
     @($projectEntries).Count -eq 0 -or @($educationEntries).Count -eq 0) {
@@ -190,6 +212,8 @@ $replacements = [ordered]@{
     "{{EXPERIENCE}}" = @($experienceEntries) -join "`n"
     "{{PROJECTS}}" = @($projectEntries) -join "`n"
     "{{EDUCATION}}" = @($educationEntries) -join "`n"
+    "{{CERTIFICATIONS}}" = $certificationLine
+    "{{LANGUAGES}}" = $languageLine
     "{{NOTE}}" = Encode-Html $note
 }
 

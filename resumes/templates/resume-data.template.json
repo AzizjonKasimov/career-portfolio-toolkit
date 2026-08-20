@@ -29,7 +29,7 @@
     {
       "company": "Organization",
       "role": "Job title",
-      "location": "City or Remote",
+      "location": "City or Remote | Team or scope (optional)",
       "start": "YYYY",
       "end": "Present",
       "bullets": [
@@ -42,6 +42,7 @@
     {
       "name": "Project name",
       "url": "https://example.com/project",
+      "date": "YYYY",
       "description": "What you built, how you built it, and why it mattered.",
       "highlights": ["A concise, evidence-backed result."]
     }
@@ -55,5 +56,11 @@
       "end": "YYYY"
     }
   ],
-  "note": "Remove this note or replace it with a short public availability statement."
+  "certifications": [
+    "Certification name - Issuer (YYYY)"
+  ],
+  "languages": [
+    "Language (proficiency)"
+  ],
+  "note": "Your Name | Page 1"
 }
