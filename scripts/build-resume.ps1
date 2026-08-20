@@ -198,6 +198,9 @@ foreach ($item in $replacements.GetEnumerator()) {
     $html = $html.Replace($item.Key, [string]$item.Value)
 }
 
+# Keep generated HTML byte-for-byte stable across LF and CRLF PowerShell checkouts.
+$html = $html.Replace("`r`n", "`n").Replace("`r", "`n")
+
 if ($html -match "\{\{[A-Z_]+\}\}") {
     throw "The resume template contains an unresolved placeholder: $($Matches[0])"
 }
