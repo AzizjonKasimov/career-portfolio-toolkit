@@ -13,6 +13,8 @@ scripts, or AI assistants without locking their information into a particular ap
 ## What You Get
 
 - Markdown templates for profiles, experience, projects, and case studies.
+- A resume data template, print-ready HTML layout, PowerShell builder, and finished PDF example.
+- A cover-letter template and fictional worked example.
 - A CSV-based job-application ledger and append-only event log.
 - PowerShell helpers for duplicate checks and tracker validation.
 - Synthetic examples that demonstrate the format without exposing personal information.
@@ -31,6 +33,12 @@ Copy-Item .\projects\project.template.md .\projects\my-project.md
 
 pwsh -File .\scripts\validate-content.ps1
 pwsh -File .\scripts\validate-applications.ps1
+
+# Build the fictional example as HTML and PDF (Microsoft Edge is used for PDF printing).
+pwsh -File .\scripts\build-resume.ps1 `
+  -DataPath .\resumes\examples\example-resume.json `
+  -HtmlPath .\resumes\examples\example-resume.html `
+  -PdfPath .\resumes\examples\example-resume.pdf
 ```
 
 Delete the synthetic rows from `job-search/applications.csv` and
@@ -56,6 +64,7 @@ the public repository from its first commit.
 | `experience/` | One Markdown file per role |
 | `projects/` | One Markdown file per personal or public project |
 | `case-studies/` | Sanitized problem/approach/outcome narratives |
+| `resumes/` | Resume source data, printable template, builder guide, and finished examples |
 | `job-search/` | Application ledger, event log, and optional detail template |
 | `examples/` | Fully synthetic examples for each content type |
 | `scripts/` | Read-only PowerShell checks |
@@ -69,6 +78,28 @@ the public repository from its first commit.
 - Use repository-relative paths so the system remains portable.
 - Store reusable facts separately from role-specific outputs.
 - Treat job-search records as private by default.
+
+## Resume Workflow
+
+The resume kit keeps reusable career facts separate from the document you tailor for a specific
+role. Start with the profile, experience, and project templates, then copy the strongest relevant
+facts into `resumes/templates/resume-data.template.json`. Build a shareable version with:
+
+```powershell
+New-Item -ItemType Directory -Force .\resumes\private | Out-Null
+Copy-Item .\resumes\templates\resume-data.template.json .\resumes\private\my-resume.json
+
+pwsh -File .\scripts\build-resume.ps1 `
+  -DataPath .\resumes\private\my-resume.json `
+  -HtmlPath .\out\my-resume.html `
+  -PdfPath .\out\my-resume.pdf
+```
+
+The repository includes a completely fictional
+[source file](resumes/examples/example-resume.json),
+[HTML resume](resumes/examples/example-resume.html), and
+[PDF resume](resumes/examples/example-resume.pdf), plus a cover-letter template. See
+[resumes/README.md](resumes/README.md) for the full workflow and customization guidance.
 
 ## Job-Search Workflow
 
@@ -94,6 +125,9 @@ Read [PRIVACY.md](PRIVACY.md), replace synthetic examples carefully, and run:
 ```powershell
 pwsh -File .\scripts\validate-content.ps1
 pwsh -File .\scripts\validate-applications.ps1
+pwsh -File .\scripts\build-resume.ps1 `
+  -DataPath .\resumes\examples\example-resume.json `
+  -HtmlPath .\out\example-resume.html
 git status --short
 ```
 

@@ -45,7 +45,20 @@ foreach ($file in $markdownFiles) {
     }
 }
 
-$textExtensions = @(".md", ".csv", ".ps1", ".yml", ".yaml", ".json", ".txt")
+$jsonFiles = @(Get-ChildItem -LiteralPath $repoPath -Recurse -File -Filter "*.json" |
+        Where-Object { $_.FullName -notmatch "[\\/]\.git[\\/]" })
+
+foreach ($file in $jsonFiles) {
+    $relative = [IO.Path]::GetRelativePath($repoPath, $file.FullName)
+    try {
+        Get-Content -LiteralPath $file.FullName -Raw | ConvertFrom-Json -ErrorAction Stop | Out-Null
+    }
+    catch {
+        $errors.Add("$relative is not valid JSON: $($_.Exception.Message)")
+    }
+}
+
+$textExtensions = @(".md", ".csv", ".ps1", ".yml", ".yaml", ".json", ".html", ".txt")
 $textFiles = @(
     Get-ChildItem -LiteralPath $repoPath -Recurse -File |
         Where-Object {
@@ -87,4 +100,4 @@ if ($errors.Count -gt 0) {
     exit 1
 }
 
-Write-Host "Content structure and privacy-marker checks passed. Markdown files checked: $($markdownFiles.Count)."
+Write-Host "Content structure and privacy-marker checks passed. Markdown files checked: $($markdownFiles.Count). JSON files checked: $($jsonFiles.Count)."

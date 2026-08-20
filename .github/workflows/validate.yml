@@ -21,3 +21,15 @@ jobs:
       - name: Validate application tracker
         shell: pwsh
         run: ./scripts/validate-applications.ps1
+
+      - name: Build the example resume
+        shell: pwsh
+        run: |
+          ./scripts/build-resume.ps1 `
+            -DataPath ./resumes/examples/example-resume.json `
+            -HtmlPath ./out/example-resume.html
+          $generated = (Get-FileHash ./out/example-resume.html -Algorithm SHA256).Hash
+          $committed = (Get-FileHash ./resumes/examples/example-resume.html -Algorithm SHA256).Hash
+          if ($generated -ne $committed) {
+            throw "The committed example resume HTML is stale. Rebuild it before committing."
+          }

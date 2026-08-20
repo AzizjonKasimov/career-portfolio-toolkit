@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{DOCUMENT_TITLE}}</title>
+  <style>
+    :root {
+      --ink: #172033;
+      --muted: #586477;
+      --accent: #087f8c;
+      --rule: #d9e1e8;
+      --paper: #ffffff;
+      --canvas: #eef2f5;
+    }
+
+    * { box-sizing: border-box; }
+
+    html, body { margin: 0; padding: 0; }
+
+    body {
+      background: var(--canvas);
+      color: var(--ink);
+      font-family: "Segoe UI", Arial, sans-serif;
+      font-size: 9.4pt;
+      line-height: 1.38;
+    }
+
+    .page {
+      background: var(--paper);
+      box-shadow: 0 10px 30px rgb(23 32 51 / 14%);
+      margin: 10mm auto;
+      min-height: 297mm;
+      padding: 14mm 16mm 12mm;
+      width: 210mm;
+    }
+
+    header {
+      border-bottom: 2px solid var(--accent);
+      padding-bottom: 4mm;
+    }
+
+    h1 {
+      font-size: 24pt;
+      letter-spacing: -0.5px;
+      line-height: 1;
+      margin: 0 0 1.8mm;
+    }
+
+    .headline {
+      color: var(--accent);
+      font-size: 11.5pt;
+      font-weight: 700;
+      margin-bottom: 2.2mm;
+    }
+
+    .contact {
+      color: var(--muted);
+      display: flex;
+      flex-wrap: wrap;
+      font-size: 8.6pt;
+      gap: 1mm 3mm;
+    }
+
+    .contact span:not(:last-child)::after {
+      color: #a7b2bf;
+      content: "•";
+      margin-left: 3mm;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    main {
+      display: grid;
+      gap: 3.3mm;
+      padding-top: 4mm;
+    }
+
+    section { break-inside: avoid; }
+
+    h2 {
+      color: var(--accent);
+      font-size: 9.5pt;
+      letter-spacing: 1.15px;
+      margin: 0 0 1.7mm;
+      text-transform: uppercase;
+    }
+
+    p { margin: 0; }
+
+    .skills { display: grid; gap: 1mm; }
+
+    .skill-row {
+      display: grid;
+      gap: 3mm;
+      grid-template-columns: 27mm 1fr;
+    }
+
+    .skill-label { font-weight: 700; }
+
+    .entry { break-inside: avoid; margin-bottom: 2.8mm; }
+    .entry:last-child { margin-bottom: 0; }
+
+    .entry-heading {
+      align-items: baseline;
+      display: flex;
+      gap: 4mm;
+      justify-content: space-between;
+    }
+
+    .entry-title { font-size: 10.2pt; font-weight: 700; }
+    .entry-subtitle { color: var(--muted); font-weight: 600; }
+    .entry-meta { color: var(--muted); font-size: 8.4pt; white-space: nowrap; }
+
+    ul { margin: 1.1mm 0 0; padding-left: 5mm; }
+    li { margin: 0 0 0.7mm; padding-left: 0.5mm; }
+
+    .project-description { margin-top: 0.8mm; }
+
+    footer {
+      border-top: 1px solid var(--rule);
+      color: var(--muted);
+      font-size: 7.8pt;
+      margin-top: 4mm;
+      padding-top: 2mm;
+      text-align: center;
+    }
+
+    @page { size: A4; margin: 0; }
+
+    @media print {
+      body { background: var(--paper); }
+      .page { box-shadow: none; margin: 0; }
+      a { color: inherit; }
+    }
+
+    @media screen and (max-width: 760px) {
+      .page { margin: 0; min-height: auto; padding: 24px; width: 100%; }
+      .entry-heading { align-items: flex-start; flex-direction: column; gap: 1mm; }
+      .entry-meta { white-space: normal; }
+      .skill-row { grid-template-columns: 1fr; gap: 0; }
+    }
+  </style>
+</head>
+<body>
+  <article class="page">
+    <header>
+      <h1>{{NAME}}</h1>
+      <div class="headline">{{HEADLINE}}</div>
+      <div class="contact">{{CONTACT}}</div>
+    </header>
+    <main>
+      <section>
+        <h2>Profile</h2>
+        <p>{{SUMMARY}}</p>
+      </section>
+      <section>
+        <h2>Skills</h2>
+        <div class="skills">{{SKILLS}}</div>
+      </section>
+      <section>
+        <h2>Experience</h2>
+        {{EXPERIENCE}}
+      </section>
+      <section>
+        <h2>Selected Projects</h2>
+        {{PROJECTS}}
+      </section>
+      <section>
+        <h2>Education</h2>
+        {{EDUCATION}}
+      </section>
+    </main>
+    <footer>{{NOTE}}</footer>
+  </article>
+</body>
+</html>

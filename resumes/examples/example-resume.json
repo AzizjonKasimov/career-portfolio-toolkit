@@ -1,0 +1,91 @@
+{
+  "name": "Jordan Example",
+  "headline": "Product-minded Software Engineer",
+  "location": "Remote",
+  "contact": [
+    {
+      "label": "Portfolio",
+      "value": "example.com/jordan",
+      "url": "https://example.com/jordan"
+    },
+    {
+      "label": "Code",
+      "value": "github.com/example/jordan",
+      "url": "https://github.com/example/jordan"
+    },
+    {
+      "label": "Contact",
+      "value": "example.com/contact",
+      "url": "https://example.com/contact"
+    }
+  ],
+  "summary": "Software engineer with six years of fictional experience building reliable workflow products and internal platforms. Turns ambiguous operational problems into maintainable systems, with an emphasis on measurable delivery, accessible interfaces, and clear technical communication.",
+  "skills": [
+    {
+      "label": "Engineering",
+      "items": ["TypeScript", "Python", "React", "Node.js", "REST APIs", "PostgreSQL"]
+    },
+    {
+      "label": "Quality",
+      "items": ["Automated testing", "Observability", "Accessibility", "Performance profiling"]
+    },
+    {
+      "label": "Delivery",
+      "items": ["Product discovery", "Technical writing", "Mentoring", "Iterative planning"]
+    }
+  ],
+  "experience": [
+    {
+      "company": "Example Labs",
+      "role": "Senior Software Engineer",
+      "location": "Remote",
+      "start": "2023",
+      "end": "Present",
+      "bullets": [
+        "Led delivery of a fictional case-management workflow used by 140 support specialists, reducing median handoff time by 31% in a controlled internal comparison.",
+        "Introduced contract tests and deployment health checks across eight services, cutting release-related incidents from an illustrative 10 per quarter to four.",
+        "Partnered with design and operations to make the highest-volume flows keyboard accessible and documented the reusable implementation patterns."
+      ]
+    },
+    {
+      "company": "Northstar Systems",
+      "role": "Software Engineer",
+      "location": "Hybrid",
+      "start": "2020",
+      "end": "2023",
+      "bullets": [
+        "Built a TypeScript and PostgreSQL reporting service that replaced three manual spreadsheet processes and saved an estimated 18 fictional staff hours per week.",
+        "Reduced p95 response time for a high-traffic dashboard from 1.8 seconds to 620 milliseconds through query analysis, caching, and payload redesign.",
+        "Mentored two early-career engineers through scoped projects, code reviews, and written delivery plans."
+      ]
+    }
+  ],
+  "projects": [
+    {
+      "name": "Civic Queue Simulator",
+      "url": "https://example.com/projects/queue-simulator",
+      "description": "Interactive, privacy-safe simulator for exploring staffing and arrival-rate tradeoffs in public-service queues.",
+      "highlights": [
+        "Published a tested calculation engine, accessible controls, and a methodology note using entirely synthetic data."
+      ]
+    },
+    {
+      "name": "Release Notes Assistant",
+      "url": "https://example.com/projects/release-notes",
+      "description": "Small local tool that groups merged changes into a reviewable release-note draft.",
+      "highlights": [
+        "Designed the workflow to keep a human approval step and avoid sending repository data to external services."
+      ]
+    }
+  ],
+  "education": [
+    {
+      "institution": "Example State University",
+      "credential": "B.S. in Computer Science",
+      "location": "Example City",
+      "start": "2016",
+      "end": "2020"
+    }
+  ],
+  "note": "Synthetic resume example - every person, organization, URL, and result is fictional."
+}

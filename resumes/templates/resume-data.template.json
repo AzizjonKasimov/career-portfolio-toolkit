@@ -1,0 +1,59 @@
+{
+  "name": "Your Name",
+  "headline": "Role or specialty",
+  "location": "City, Country or Remote",
+  "contact": [
+    {
+      "label": "Portfolio",
+      "value": "example.com",
+      "url": "https://example.com"
+    },
+    {
+      "label": "LinkedIn",
+      "value": "linkedin.com/in/example",
+      "url": "https://www.linkedin.com/in/example"
+    }
+  ],
+  "summary": "Two or three sentences connecting your strongest evidence to the target role.",
+  "skills": [
+    {
+      "label": "Core",
+      "items": ["Skill one", "Skill two", "Skill three"]
+    },
+    {
+      "label": "Tools",
+      "items": ["Tool one", "Tool two"]
+    }
+  ],
+  "experience": [
+    {
+      "company": "Organization",
+      "role": "Job title",
+      "location": "City or Remote",
+      "start": "YYYY",
+      "end": "Present",
+      "bullets": [
+        "Action, context, and a verified outcome.",
+        "Another relevant contribution supported by evidence."
+      ]
+    }
+  ],
+  "projects": [
+    {
+      "name": "Project name",
+      "url": "https://example.com/project",
+      "description": "What you built, how you built it, and why it mattered.",
+      "highlights": ["A concise, evidence-backed result."]
+    }
+  ],
+  "education": [
+    {
+      "institution": "Institution",
+      "credential": "Degree, certificate, or relevant study",
+      "location": "City, Country",
+      "start": "YYYY",
+      "end": "YYYY"
+    }
+  ],
+  "note": "Remove this note or replace it with a short public availability statement."
+}
