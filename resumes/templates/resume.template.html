@@ -6,12 +6,13 @@
   <title>{{DOCUMENT_TITLE}}</title>
   <style>
     :root {
-      --ink: #172033;
-      --muted: #586477;
-      --accent: #087f8c;
-      --rule: #d9e1e8;
+      --forest: #1f4e45;
+      --teal: #2a7068;
+      --ink: #1f2427;
+      --muted: #505b60;
+      --rule: #afc7c1;
       --paper: #ffffff;
-      --canvas: #eef2f5;
+      --canvas: #edf1f0;
     }
 
     * { box-sizing: border-box; }
@@ -21,84 +22,101 @@
     body {
       background: var(--canvas);
       color: var(--ink);
-      font-family: "Segoe UI", Arial, sans-serif;
-      font-size: 9.4pt;
-      line-height: 1.38;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 9.45pt;
+      line-height: 1.16;
     }
 
     .page {
       background: var(--paper);
-      box-shadow: 0 10px 30px rgb(23 32 51 / 14%);
+      box-shadow: 0 10px 30px rgb(31 78 69 / 12%);
       margin: 10mm auto;
-      min-height: 297mm;
-      padding: 14mm 16mm 12mm;
-      width: 210mm;
+      min-height: 279.4mm;
+      padding: 14.7mm 19.05mm 13.9mm;
+      position: relative;
+      width: 215.9mm;
     }
 
-    header {
-      border-bottom: 2px solid var(--accent);
-      padding-bottom: 4mm;
-    }
+    header { margin-bottom: 2.6mm; }
 
     h1 {
-      font-size: 24pt;
-      letter-spacing: -0.5px;
+      color: var(--forest);
+      font-size: 24.5pt;
+      font-weight: 700;
+      letter-spacing: 0.45px;
       line-height: 1;
-      margin: 0 0 1.8mm;
+      margin: 0 0 1.1mm;
+      text-transform: uppercase;
     }
 
     .headline {
-      color: var(--accent);
-      font-size: 11.5pt;
+      color: var(--teal);
+      font-size: 10.55pt;
       font-weight: 700;
-      margin-bottom: 2.2mm;
+      line-height: 1.08;
+      margin-bottom: 1.25mm;
+      text-transform: uppercase;
     }
 
     .contact {
       color: var(--muted);
       display: flex;
       flex-wrap: wrap;
-      font-size: 8.6pt;
-      gap: 1mm 3mm;
+      font-size: 8.65pt;
+      gap: 0.5mm 1.7mm;
+      line-height: 1.12;
     }
 
     .contact span:not(:last-child)::after {
-      color: #a7b2bf;
-      content: "•";
-      margin-left: 3mm;
+      color: var(--muted);
+      content: "|";
+      margin-left: 1.7mm;
     }
 
     a { color: inherit; text-decoration: none; }
 
-    main {
-      display: grid;
-      gap: 3.3mm;
-      padding-top: 4mm;
+    main { display: block; }
+
+    section {
+      break-inside: avoid;
+      margin-top: 2.2mm;
     }
 
-    section { break-inside: avoid; }
+    section:first-child { margin-top: 0; }
 
     h2 {
-      color: var(--accent);
-      font-size: 9.5pt;
-      letter-spacing: 1.15px;
-      margin: 0 0 1.7mm;
+      border-bottom: 0.7px solid var(--rule);
+      color: var(--teal);
+      font-size: 10.55pt;
+      font-weight: 700;
+      letter-spacing: 0.35px;
+      line-height: 1;
+      margin: 0 0 1.35mm;
+      padding-bottom: 0.65mm;
       text-transform: uppercase;
     }
 
     p { margin: 0; }
 
-    .skills { display: grid; gap: 1mm; }
+    .profile { font-size: 9.55pt; line-height: 1.2; }
 
-    .skill-row {
-      display: grid;
-      gap: 3mm;
-      grid-template-columns: 27mm 1fr;
+    .skills { display: grid; gap: 0.7mm; }
+
+    .skill-row { display: block; }
+
+    .skill-label {
+      color: var(--forest);
+      font-weight: 700;
+      margin-right: 0.8mm;
     }
 
-    .skill-label { font-weight: 700; }
+    .skill-label::after { content: ":"; }
 
-    .entry { break-inside: avoid; margin-bottom: 2.8mm; }
+    .entry {
+      break-inside: avoid;
+      margin-bottom: 1.75mm;
+    }
+
     .entry:last-child { margin-bottom: 0; }
 
     .entry-heading {
@@ -108,25 +126,75 @@
       justify-content: space-between;
     }
 
-    .entry-title { font-size: 10.2pt; font-weight: 700; }
-    .entry-subtitle { color: var(--muted); font-weight: 600; }
-    .entry-meta { color: var(--muted); font-size: 8.4pt; white-space: nowrap; }
-
-    ul { margin: 1.1mm 0 0; padding-left: 5mm; }
-    li { margin: 0 0 0.7mm; padding-left: 0.5mm; }
-
-    .project-description { margin-top: 0.8mm; }
-
-    footer {
-      border-top: 1px solid var(--rule);
-      color: var(--muted);
-      font-size: 7.8pt;
-      margin-top: 4mm;
-      padding-top: 2mm;
-      text-align: center;
+    .entry-title {
+      color: var(--forest);
+      font-size: 10.05pt;
+      font-weight: 700;
     }
 
-    @page { size: A4; margin: 0; }
+    .entry-subtitle {
+      color: var(--teal);
+      font-size: 10.05pt;
+      font-weight: 700;
+    }
+
+    .entry-meta {
+      color: var(--muted);
+      font-size: 8.6pt;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    .entry-subline {
+      color: var(--muted);
+      font-size: 8.55pt;
+      font-style: italic;
+      margin-top: 0.25mm;
+    }
+
+    ul {
+      margin: 0.7mm 0 0;
+      padding-left: 5.2mm;
+    }
+
+    li {
+      line-height: 1.17;
+      margin: 0 0 0.6mm;
+      padding-left: 0.75mm;
+    }
+
+    li::marker { color: var(--teal); }
+
+    .project-description {
+      font-size: 9.25pt;
+      line-height: 1.17;
+      margin-top: 0.55mm;
+    }
+
+    .additional-lines {
+      display: grid;
+      gap: 0.45mm;
+      margin-top: 0.7mm;
+    }
+
+    .additional-line { line-height: 1.15; }
+
+    .additional-label {
+      color: var(--forest);
+      font-weight: 700;
+      margin-right: 0.8mm;
+    }
+
+    footer {
+      bottom: 5.6mm;
+      color: var(--muted);
+      font-size: 7.7pt;
+      position: absolute;
+      right: 19.05mm;
+      text-align: right;
+    }
+
+    @page { size: Letter; margin: 0; }
 
     @media print {
       body { background: var(--paper); }
@@ -134,11 +202,11 @@
       a { color: inherit; }
     }
 
-    @media screen and (max-width: 760px) {
+    @media screen and (max-width: 820px) {
       .page { margin: 0; min-height: auto; padding: 24px; width: 100%; }
-      .entry-heading { align-items: flex-start; flex-direction: column; gap: 1mm; }
+      .entry-heading { align-items: flex-start; flex-direction: column; gap: 0.5mm; }
       .entry-meta { white-space: normal; }
-      .skill-row { grid-template-columns: 1fr; gap: 0; }
+      footer { margin-top: 8mm; position: static; text-align: left; }
     }
   </style>
 </head>
@@ -151,24 +219,28 @@
     </header>
     <main>
       <section>
-        <h2>Profile</h2>
-        <p>{{SUMMARY}}</p>
+        <h2>Professional Profile</h2>
+        <p class="profile">{{SUMMARY}}</p>
       </section>
       <section>
-        <h2>Skills</h2>
+        <h2>Core Capabilities</h2>
         <div class="skills">{{SKILLS}}</div>
       </section>
       <section>
-        <h2>Experience</h2>
+        <h2>Professional Experience</h2>
         {{EXPERIENCE}}
       </section>
       <section>
-        <h2>Selected Projects</h2>
+        <h2>Selected Product Work</h2>
         {{PROJECTS}}
       </section>
       <section>
-        <h2>Education</h2>
+        <h2>Education &amp; Credentials</h2>
         {{EDUCATION}}
+        <div class="additional-lines">
+          {{CERTIFICATIONS}}
+          {{LANGUAGES}}
+        </div>
       </section>
     </main>
     <footer>{{NOTE}}</footer>
