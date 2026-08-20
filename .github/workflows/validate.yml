@@ -1,0 +1,23 @@
+name: Validate toolkit
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: windows-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Validate content and privacy markers
+        shell: pwsh
+        run: ./scripts/validate-content.ps1
+
+      - name: Validate application tracker
+        shell: pwsh
+        run: ./scripts/validate-applications.ps1

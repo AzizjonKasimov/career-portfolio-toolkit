@@ -1,0 +1,3 @@
+application_id,company,role_title,platform,platform_posting_id,posting_url,date_found,date_applied,status,fit_level,materials_path,next_action,next_follow_up,outcome_date,notes,duplicate_check_key
+app-2026-001,Example Labs,Machine Learning Engineer,ExampleBoard,EX-1001,https://example.com/jobs/EX-1001,2026-01-10,2026-01-12,applied,strong,,Follow up if no response,2026-01-26,,,exampleboard:EX-1001
+app-2026-002,Northstar Systems,Data Engineer,Company Site,NS-DE-02,https://example.com/jobs/NS-DE-02,2026-01-15,,materials_prepared,good,,Review cover letter,,,,company-role:northstar-systems:data-engineer

@@ -1,0 +1,22 @@
+.idea/
+.vscode/
+.venv/
+node_modules/
+tmp/
+out/
+*.log
+*.tmp
+*.bak
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+*.pfx
+
+# Real career records are private by default. Remove these rules only in a private fork.
+private/
+resumes/private/
+job-search/private/
+job-search/evidence/

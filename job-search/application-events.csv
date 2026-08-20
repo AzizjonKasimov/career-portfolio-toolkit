@@ -1,0 +1,4 @@
+event_id,application_id,event_date,event_type,status_after,summary
+evt-2026-001,app-2026-001,2026-01-10,found,found,Discovered synthetic example posting
+evt-2026-002,app-2026-001,2026-01-12,applied,applied,Recorded synthetic submission
+evt-2026-003,app-2026-002,2026-01-15,materials_prepared,materials_prepared,Prepared synthetic application materials
